@@ -1,2 +1,2 @@
 # flag_recognition
-Recognize flags
+Recognize flags and associated datasets.
