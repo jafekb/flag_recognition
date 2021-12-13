@@ -5,7 +5,7 @@ import yaml
 import numpy as np
 
 
-def readfile(fname, group="ts"):
+def readfile(fname):
     """ 
     Util function for reading a variety of different files
     """
@@ -18,6 +18,7 @@ def readfile(fname, group="ts"):
         with open(fname, "r") as f_in:
             data = f_in.read()
     elif ext == ".bin":
+        # point clouds
         data = np.fromfile(fname, dtype=np.float32).reshape(-1, 4)
     elif ext in (".yaml", ".yml"):
         with open(fname, "r") as f_in:

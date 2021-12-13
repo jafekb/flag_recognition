@@ -20,6 +20,9 @@ import pdb  # noqa
 
 
 def parse_args():
+    """
+    parse command-line arguments
+    """
     parser = argparse.ArgumentParser()
 
     cur_file = Path(__file__).absolute()
