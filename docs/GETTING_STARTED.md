@@ -1,7 +1,7 @@
 # Getting started
 
 ## Installation
-(todo: use docker)
+Use docker in the future (See issue [#7](https://github.com/jafekb/flag_recognition/issues/7))
 
 1. Install git-lfs: Follow these instructions [here](http://arfc.github.io/manual/guides/git-lfs)
 2. Download the chromedriver that matches your current version (see [here](https://chromedriver.chromium.org/downloads))
