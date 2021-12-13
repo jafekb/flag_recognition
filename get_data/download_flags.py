@@ -5,6 +5,7 @@ import argparse
 import os
 from pathlib import Path
 import time
+import urllib
 import urllib.request
 
 from selenium import webdriver
@@ -92,7 +93,10 @@ class DownloadFlags:
                 if os.path.isfile(local_name):
                     continue
 
-                urllib.request.urlretrieve(full_size, local_name)
+                try:
+                    urllib.request.urlretrieve(full_size, local_name)
+                except urllib.error.HTTPError:
+                    print ("did not download:", full_size)
 
                 time.sleep(self._delay)
 
