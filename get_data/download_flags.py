@@ -86,6 +86,8 @@ class DownloadFlags:
                     self._out_dir,
                     os.path.basename(full_size).replace("%2C_", "+"),
                 )
+                if os.path.isfile(local_name):
+                    continue
 
                 urllib.request.urlretrieve(full_size, local_name)
 
