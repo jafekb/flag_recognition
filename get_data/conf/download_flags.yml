@@ -1,3 +1,7 @@
+out_dir: "/home/benjafek/personal/flag_recognition/data"
+delay: 1  # second
+
 chromedriver: "/home/benjafek/personal/flag_recognition/get_data/conf/chromedriver"
+
 pages:
     - "https://en.wikipedia.org/wiki/List_of_city_flags"
