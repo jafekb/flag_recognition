@@ -93,10 +93,19 @@ class DownloadFlags:
                 if os.path.isfile(local_name):
                     continue
 
+                # And download
                 try:
                     urllib.request.urlretrieve(full_size, local_name)
                 except urllib.error.HTTPError:
-                    print ("did not download:", full_size)
+                    # If you can't get the full size image, just
+                    #  get the thumbnail
+                    print("Getting thumbnail version of:", thumb)
+
+                    try:
+                        urllib.request.urlretrieve(thumb, local_name)
+                    except urllib.error.HTTPError:
+                        # Still can't get that, just give up
+                        continue
 
                 time.sleep(self._delay)
 
