@@ -3,22 +3,19 @@ Downloads data from wikipedia pages
 """
 import argparse
 import os
-from pathlib import Path
+import pdb  # noqa
 import time
 import urllib
 import urllib.request
+from pathlib import Path
+from pprint import pprint  # noqa
 
+# local (add flag_recognition to your PYTHONPATH)
+from common.utils import readfile
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from tqdm import tqdm
 from typeguard import typechecked
-
-# local (add flag_recognition to your PYTHONPATH)
-from common.utils import readfile
-
-# debug
-from pprint import pprint  # noqa
-import pdb  # noqa
 
 
 @typechecked
