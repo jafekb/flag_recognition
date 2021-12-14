@@ -3,24 +3,23 @@ Downloads data from wikipedia pages
 """
 import argparse
 import os
-from pathlib import Path
+import pdb  # noqa
 import time
 import urllib
 import urllib.request
-
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from tqdm import tqdm
+from pathlib import Path
+from pprint import pprint  # noqa
 
 # local (add flag_recognition to your PYTHONPATH)
 from common.utils import readfile
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from tqdm import tqdm
+from typeguard import typechecked
 
-# debug
-from pprint import pprint  # noqa
-import pdb  # noqa
 
-
-def parse_args():
+@typechecked
+def parse_args() -> argparse.Namespace:
     """
     parse command-line arguments
     """
@@ -41,7 +40,8 @@ class DownloadFlags:
     just download it.
     """
 
-    def __init__(self, conf):
+    @typechecked
+    def __init__(self, conf: dict) -> None:
         """
         init
         """
@@ -51,13 +51,16 @@ class DownloadFlags:
         self._out_dir = conf["out_dir"]
         self._delay = conf["delay"]
 
-    def __del__(self):
+    @typechecked
+    def __del__(self) -> None:
         """
         Always destroy the driver upon exiting
         """
-        self._driver.close()
+        if self._driver is not None:
+            self._driver.close()
 
-    def initialize_driver(self):
+    @typechecked
+    def initialize_driver(self) -> None:
         """
         Initialize the webdriver to be used throughout.
         """
@@ -67,7 +70,8 @@ class DownloadFlags:
         opts.add_argument("user-agent=bot")
         self._driver = webdriver.Chrome(self._drive_path, chrome_options=opts)
 
-    def download_and_tag_all_images(self):
+    @typechecked
+    def download_and_tag_all_images(self) -> None:
         """
         This function downloads the full (non-thumbnail) version of all
         images from a given wikipedia website. For flag pages, it will be

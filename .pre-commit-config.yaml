@@ -8,3 +8,9 @@ repos:
     rev: 3.9.2
     hooks:
     - id: flake8
+-   repo: https://github.com/timothycrosley/isort
+    rev: 4.3.21-2
+    hooks:
+    - id: isort
+      args: [--filter-files]
+      files: \.py$

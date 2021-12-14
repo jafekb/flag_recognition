@@ -1,12 +1,16 @@
-import os
 import json
+import os
+from pathlib import Path
+from typing import Union
 
-import yaml
 import numpy as np
+from typeguard import typechecked
+import yaml
 
 
-def readfile(fname):
-    """ 
+@typechecked
+def readfile(fname: Union[str, Path]) -> Union[str, dict, np.ndarray]:
+    """
     Util function for reading a variety of different files
     """
     fname = str(fname)
