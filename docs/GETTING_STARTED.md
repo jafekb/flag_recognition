@@ -5,9 +5,10 @@ Use docker in the future (See issue [#7](https://github.com/jafekb/flag_recognit
 
 1. Install git-lfs: Follow these instructions [here](http://arfc.github.io/manual/guides/git-lfs)
 2. Download the chromedriver that matches your current version (see [here](https://chromedriver.chromium.org/downloads))
-3. Install the proper python libraries:
+
+3. Enter the proper pipenv environment
 ```
-python3 -m pip install -r requirements.txt
+pipenv shell
 ```
 
 ## Setup
