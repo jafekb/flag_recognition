@@ -9,6 +9,7 @@ Use docker in the future (See issue [#7](https://github.com/jafekb/flag_recognit
 3. Enter the proper pipenv environment
 ```
 pipenv shell
+export PYTHONPATH=$(pwd):$PYTHONPATH
 ```
 
 ## Setup
